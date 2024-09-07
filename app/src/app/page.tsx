@@ -50,8 +50,8 @@ export default function Home() {
 
   return (
     <div className="">
-      <main className="">
-        Correios Assistente //
+      <main className="mt-20">
+        <h1 className="font-bold text-[2rem] text-blue">Correios Assistente</h1>
         <div className="mt-10 flex flex-col">
           <div className="flex gap-8 flex-wrap">
             {showedServices.map((service, i) => (
@@ -72,7 +72,6 @@ export default function Home() {
         </div>
         <Chat />
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center"></footer>
     </div>
   );
 }

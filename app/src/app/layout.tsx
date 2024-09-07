@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Image from "next/image";
 import logo from "@/public/logo.svg";
+import govLogo from "@/public/govLogo.png";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,14 +29,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white min-h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white min-h-screen flex flex-col justify-betweens`}
       >
-        <div className="p-4 h-screen">
+        <div className="p-4">
           <header>
             <Image src={logo} alt="Correios" />
           </header>
           {children}
         </div>
+        <footer className="row-start-3 px-4 flex gap-6  items-center justify-between py-2 bg-yellow">
+          <span className="text-blue">Copyright 2024 Correios</span>
+          <Image src={govLogo} />
+          <span className="opacity-0">teste</span>
+        </footer>
       </body>
     </html>
   );
