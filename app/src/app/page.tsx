@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import ServiceCard from "./components/ServiceCard/page";
-import { IService } from "@/interfaces/service";
 import Chat from "./chat/page";
 import { CorreiosService, CorreiosServices } from "@/lib/data";
 import threeDots from "@/public/icons/tree-dots.svg";

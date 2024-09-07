@@ -30,19 +30,19 @@ export default function Chat() {
     }
   }, [status]);
 
-  useEffect(() => {
-    setMessages([
-      {
-        id: "1",
-        role: "user",
-        content: "Como posso fazer o despacho de uma encomenda",
-      },
-      {
-        "role": "assistant",
-        "content": "Mock da resposta assistente virtual",
-        "id": "2"
-    }])
-  }, []);
+  // useEffect(() => {
+  //   setMessages([
+  //     {
+  //       id: "1",
+  //       role: "user",
+  //       content: "Como posso fazer o despacho de uma encomenda",
+  //     },
+  //     {
+  //       "role": "assistant",
+  //       "content": "Mock da resposta assistente virtual",
+  //       "id": "2"
+  //   }])
+  // }, []);
 
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const messagesContainerRef = useRef<HTMLDivElement | null>(null);
