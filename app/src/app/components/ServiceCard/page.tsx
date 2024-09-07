@@ -11,7 +11,7 @@ export interface props {
 export default function ServiceCard({ icon, title, link }: props) {
   return (
     <Link
-      href={`/tutorial/${link}`}
+      href={`/servico/${link}`}
       className="flex flex-col items-center w-[9.75rem] gap-2 p-2             hover:bg-[#e7f6ffaf]"
     >
       <div></div>
