@@ -1,4 +1,16 @@
+import time from "@/public/time.png";
+import international from "@/public/international.png";
+import postal from "@/public/postal.png";
+import cpf from "@/public/cpf.png";
+import found from "@/public/found.png";
+import locker from "@/public/locker.png";
+import correio from "@/public/correio.png";
+import cep from "@/public/cep.png";
+
+import { StaticImageData } from "next/image";
+
 export interface CorreiosService {
+  icon: StaticImageData;
   slug: string;
   title: string;
   steps: Step[];
@@ -10,7 +22,8 @@ type Step = {
 };
 
 export const CorreiosServices: CorreiosService[] = [
-  {
+  { 
+    icon: time,
     slug: "prices",
     title: "Preços e prazos",
     steps: [
@@ -20,7 +33,8 @@ export const CorreiosServices: CorreiosService[] = [
       },
     ],
   },
-  {
+  { 
+    icon: international,
     slug: "prices-inter",
     title: "preços e prazos internacionais",
     steps: [
@@ -30,7 +44,8 @@ export const CorreiosServices: CorreiosService[] = [
       },
     ],
   },
-  {
+  { 
+    icon: postal,
     slug: "dispatch",
     title: "Despacho Postal",
     steps: [
@@ -48,7 +63,8 @@ export const CorreiosServices: CorreiosService[] = [
       },
     ],
   },
-  {
+  { 
+    icon: cpf,
     slug: "cpf",
     title: "Ajustes no CPF",
     steps: [
@@ -58,7 +74,8 @@ export const CorreiosServices: CorreiosService[] = [
       },
     ],
   },
-  {
+  { 
+    icon: found,
     slug: "lost&found",
     title: "Achados e Perdidos",
     steps: [
@@ -68,7 +85,8 @@ export const CorreiosServices: CorreiosService[] = [
       },
     ],
   },
-  {
+  { 
+    icon: locker,
     slug: "locker",
     title: "Locker",
     steps: [
@@ -78,7 +96,8 @@ export const CorreiosServices: CorreiosService[] = [
       },
     ],
   },
-  {
+  { 
+    icon: correio,
     slug: "sedex",
     title: "Sedex",
     steps: [
@@ -88,7 +107,8 @@ export const CorreiosServices: CorreiosService[] = [
       },
     ],
   },
-  {
+  { 
+    icon: cep,
     slug: "cep-search",
     title: "Busca CEP",
     steps: [

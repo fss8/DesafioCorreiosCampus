@@ -3,6 +3,8 @@
 
 import { Message, useAssistant } from "ai/react";
 import { useEffect, useRef } from "react";
+import Image from "next/image";
+import search from "@/public/search.png";
 
 export default function Chat() {
   const { status, messages, input, submitMessage, handleInputChange, error } =
@@ -72,15 +74,17 @@ export default function Chat() {
             <div className="h-8 w-full max-w-md p-2 mb-8 bg-gray-300 dark:bg-gray-600 rounded-lg animate-pulse" />
           ) : (
             <form onSubmit={submitMessage}>
-              <input
-                ref={inputRef}
-                disabled={status !== "awaiting_message"}
-                className="w-full p-2 py-4 border-2 border-black rounded-lg"
-                style={{ width: "100%" }}
-                value={input}
-                placeholder="Alguma dúvida?"
-                onChange={handleInputChange}
-              />
+              <div className="flex items-center border-2 border-black rounded-lg w-full">
+                <input
+                  ref={inputRef}
+                  disabled={status !== "awaiting_message"}
+                  className="w-full p-2 py-4 rounded-lg outline-none"
+                  value={input}
+                  placeholder="Alguma dúvida?"
+                  onChange={handleInputChange}
+                />
+                <Image src={search} alt="" className="h-8 w-8 m-3" />
+              </div>
             </form>
           )}
         </div>

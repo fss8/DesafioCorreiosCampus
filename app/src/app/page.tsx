@@ -56,9 +56,9 @@ export default function Home() {
           <div className="flex gap-8 flex-wrap">
             {showedServices.map((service, i) => (
               <ServiceCard
+                icon={service.icon}
                 key={i}
                 title={service.title}
-                icon=""
                 link={service.slug}
               />
             ))}
