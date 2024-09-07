@@ -26,11 +26,23 @@ export const CorreiosServices: CorreiosService[] = [
     icon: time,
     slug: "prices",
     title: "Preços e prazos",
-    steps: [
+    steps:  [
       {
-        title: "Fazer coiso coisado",
-        desc: "",
+        title: "Acessar a Plataforma de Preços e Prazos",
+        desc: "Acesse o link para consulta de preços e prazos: [Preços e Prazos Correios](https://efi.correios.com.br/app/simulaPrecoPrazo/index.php).",
       },
+      {
+        title: "Inserir Informações da Encomenda",
+        desc: "Selecione o tipo de encomenda, insira o CEP de origem, o destino (Estado e cidade), escolha o formato da embalagem e informe suas dimensões e peso.",
+      },
+      {
+        title: "Simular Preços e Prazos",
+        desc: "Clique em 'Simular' para ver as opções de envio, preços, prazos e informações adicionais.",
+      },
+      {
+        title: "Confirmar e Processar a Encomenda",
+        desc: "Após escolher o serviço desejado, informe o cliente das opções de envio e prossiga com o registro ou preparação da encomenda.",
+      }
     ],
   },
   { 

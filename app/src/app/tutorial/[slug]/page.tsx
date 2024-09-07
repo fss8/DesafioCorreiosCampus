@@ -34,9 +34,9 @@ export default function Page() {
               <div key={i}>
                 <div className="text-blue flex items-center gap-2 bg-yellow p-2 rounded-md">
                   <span className="text-bold text-[2rem]">{i + 1}</span>
-                  <div>{step.title}</div>
+                  <div className="font-semibold ">{step.title}</div>
                 </div>
-                <p className="text-blue">{step.desc}</p>
+                <p className="text-blue break-words">{step.desc}</p>
               </div>
             ))}
         </div>
