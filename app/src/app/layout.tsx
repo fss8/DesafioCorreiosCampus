@@ -32,12 +32,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white min-h-screen flex flex-col justify-between`}
       >
-        <div className="p-4">
-          <header>
+        <header className="bg-[#F0F0F0] p-4 shadow-lg text-center">
             <Link href={"/"}>
               <Image src={logo} alt="Correios" />
             </Link>
           </header>
+        <div className="p-4">
+          
           {children}
         </div>
         <footer className="row-start-3 px-4 flex gap-6  items-center justify-between py-2 bg-yellow">

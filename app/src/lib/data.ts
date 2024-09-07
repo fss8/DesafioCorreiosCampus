@@ -36,7 +36,7 @@ export const CorreiosServices: CorreiosService[] = [
   { 
     icon: international,
     slug: "prices-inter",
-    title: "preços e prazos internacionais",
+    title: "Preços e prazos internacionais",
     steps: [
       {
         title: "Script de Calculo",

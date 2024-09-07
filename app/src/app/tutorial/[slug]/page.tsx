@@ -21,7 +21,7 @@ export default function Page() {
   });
 
   return (
-    <div className="mt-6 grid gap-4 grid-cols-2">
+    <div className="mt-6 grid gap-4 grid-cols-1 lg:grid-cols-2">
       <div className="max-w-1/2">
         <div>
           <h2 className="text-[1.5rem] text-blue">Sistemas</h2>

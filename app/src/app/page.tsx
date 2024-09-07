@@ -51,27 +51,36 @@ export default function Home() {
   return (
     <div className="">
       <main className="mt-20">
-        <h1 className="font-bold text-[2rem] text-blue">Correios Assistente</h1>
-        <div className="mt-5 flex flex-col">
-          <div className="flex gap-8 flex-wrap">
-            {showedServices.map((service, i) => (
-              <ServiceCard
-                icon={service.icon}
+        <h1 className="font-bold text-[2rem] text-blue pl-2 md:pl-4">Correios Assistente</h1>
+        <div className="mt-5 flex flex-col items-start">
+          <div className="flex flex-col pl-4 md:pl-0 items-center">
+            <div className="flex gap-4 flex-wrap ">
+              {showedServices.map((service, i) => (
+                <div
                 key={i}
-                title={service.title}
-                link={service.slug}
-              />
-            ))}
-            <button
-              className="p-4 rounded-md flex items-center flex-col"
-              onClick={handleServicesGrid}
-            >
-              <Image src={threeDots} />
-              <span className="text-blue">
-                {isMinimized ? "Mostrar mais" : "Mostrar menos"}
-              </span>
-            </button>
+                className="flex flex-row content-between "
+                >
+                  <ServiceCard
+                  icon={service.icon}
+                  key={i}
+                  title={service.title}
+                  link={service.slug}
+                />
+                </div>
+                
+              ))}
+              <button
+                className="p-4 rounded-md flex items-center flex-col"
+                onClick={handleServicesGrid}
+              >
+                <Image src={threeDots} />
+                <span className="text-blue">
+                  {isMinimized ? "Mostrar mais" : "Mostrar menos"}
+                </span>
+              </button>
+            </div>
           </div>
+          
         </div>
         <Chat />
       </main>
