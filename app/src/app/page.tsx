@@ -1,23 +1,24 @@
 "use client";
 
-// import { IService } from "@/interfaces/service";
 import { useEffect, useState } from "react";
 import ServiceCard from "./components/ServiceCard/page";
 import { IService } from "@/interfaces/service";
 import Chat from "./chat/page";
-// import {}
+import { CorreiosService, CorreiosServices } from "@/lib/data";
+import threeDots from "@/public/icons/tree-dots.svg";
+import Image from "next/image";
 
 export default function Home() {
-  const maxMinimizedItems = 2;
-  const [showedServices, setShowedServices] = useState<IService[]>([]);
+  const maxMinimizedItems = 7;
+  const [showedServices, setShowedServices] = useState<CorreiosService[]>([]);
   const [isMinimized, setIsMinimized] = useState(true);
   const services = [
     {
-      title: "Entrega",
+      title: "Preços e Prazos",
       link: "delivery",
     },
     {
-      title: "Entrega",
+      title: "Preços e Prazos internacionais",
       link: "delivery",
     },
     {
@@ -27,16 +28,15 @@ export default function Home() {
   ];
 
   useEffect(() => {
-    console.log("reached");
-
     if (isMinimized) {
-      const filteredServices = services.filter((service, i) => {
-        if (i < maxMinimizedItems) return service;
-        return false;
+      const filteredServices: CorreiosService[] = [];
+
+      CorreiosServices.forEach((service, i) => {
+        if (i < maxMinimizedItems) filteredServices.push(service);
       });
       setShowedServices(filteredServices);
     } else {
-      setShowedServices(services);
+      setShowedServices(CorreiosServices);
     }
   }, [isMinimized]);
 
@@ -52,21 +52,24 @@ export default function Home() {
     <div className="">
       <main className="mt-20">
         <h1 className="font-bold text-[2rem] text-blue">Correios Assistente</h1>
-        <div className="mt-10 flex flex-col">
+        <div className="mt-5 flex flex-col">
           <div className="flex gap-8 flex-wrap">
             {showedServices.map((service, i) => (
               <ServiceCard
                 key={i}
                 title={service.title}
                 icon=""
-                link={service.link}
+                link={service.slug}
               />
             ))}
             <button
-              className="bg-blue p-4 rounded-md"
+              className="p-4 rounded-md flex items-center flex-col"
               onClick={handleServicesGrid}
             >
-              {isMinimized ? "Mostrar mais" : "mostrar menos"}
+              <Image src={threeDots} />
+              <span className="text-blue">
+                {isMinimized ? "Mostrar mais" : "Mostrar menos"}
+              </span>
             </button>
           </div>
         </div>

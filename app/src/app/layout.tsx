@@ -4,6 +4,7 @@ import "./globals.css";
 import Image from "next/image";
 import logo from "@/public/logo.svg";
 import govLogo from "@/public/govLogo.png";
+import Link from "next/link";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,17 +30,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white min-h-screen flex flex-col justify-betweens`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white min-h-screen flex flex-col justify-between`}
       >
         <div className="p-4">
           <header>
-            <Image src={logo} alt="Correios" />
+            <Link href={"/"}>
+              <Image src={logo} alt="Correios" />
+            </Link>
           </header>
           {children}
         </div>
         <footer className="row-start-3 px-4 flex gap-6  items-center justify-between py-2 bg-yellow">
           <span className="text-blue">Copyright 2024 Correios</span>
-          <Image src={govLogo} />
+          <Image src={govLogo} alt="Correios" />
           <span className="opacity-0">teste</span>
         </footer>
       </body>
