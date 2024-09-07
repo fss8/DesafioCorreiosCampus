@@ -2,9 +2,9 @@
 
 // import { IService } from "@/interfaces/service";
 import { useEffect, useState } from "react";
-import ChatInput from "./chatInput/page";
 import ServiceCard from "./components/ServiceCard/page";
 import { IService } from "@/interfaces/service";
+import Chat from "./chat/page";
 // import {}
 
 export default function Home() {
@@ -69,8 +69,8 @@ export default function Home() {
               {isMinimized ? "Mostrar mais" : "mostrar menos"}
             </button>
           </div>
-          <ChatInput />
         </div>
+        <Chat />
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center"></footer>
     </div>

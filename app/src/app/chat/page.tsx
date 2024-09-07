@@ -8,18 +8,24 @@ export default function Chat() {
   const { status, messages, input, submitMessage, handleInputChange, error } =
     useAssistant({
       api: "/api/assistant",
+      messages: [
+        {
+          role: "user",
+          content: "Say this is a test(pergunta)",
+        },
+      ],
     });
 
-    const roleToColorMap: Record<Message["role"], string> = {
-      system: "red",
-      user: "black",
-      assistant: "green",
-    };
+  const roleToColorMap: Record<Message["role"], string> = {
+    system: "red",
+    user: "black",
+    assistant: "green",
+  };
 
   const InputDict = {
-    "user": 'Pergunta',
-    'assistant': 'Resposta'
-  }
+    user: "Pergunta",
+    assistant: "Resposta",
+  };
 
   const inputRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
@@ -29,8 +35,8 @@ export default function Chat() {
   }, [status]);
 
   return (
-    <div className='h-full'>
-      <div className='w-full mt-20 h-[400px] block border border-gray-500 rounded-lg'>
+    <div className="w-full">
+      <div className="w-full mt-4 block border border-gray-500 rounded-lg">
         <div className="h-4/6">
           {error != null && (
             <div className="relative h-[100px] bg-red-500 text-white px-6 py-4 rounded-md">
@@ -44,7 +50,8 @@ export default function Chat() {
             <div
               key={m.id}
               className="whitespace-pre-wrap"
-              style={{ color: roleToColorMap[m.role] }}>
+              style={{ color: roleToColorMap[m.role] }}
+            >
               <strong>{InputDict[m.role]}: </strong>
               {m.role !== "data" && m.content}
               {m.role === "data" && (
@@ -63,25 +70,21 @@ export default function Chat() {
 
           {status === "in_progress" ? (
             <div className="h-8 w-full max-w-md p-2 mb-8 bg-gray-300 dark:bg-gray-600 rounded-lg animate-pulse" />
-          ) : 
-          <form onSubmit={submitMessage}>
-            <input
-              ref={inputRef}
-              disabled={status !== "awaiting_message"}
-              className="  border w-full border-gray-300 rounded shadow-xl h-[100px]"
-              style={{width: '100%'}}
-              value={input}
-              placeholder="Alguma dúvida?"
-              onChange={handleInputChange}
-            />
-          </form>
-          }
-
-
-          
+          ) : (
+            <form onSubmit={submitMessage}>
+              <input
+                ref={inputRef}
+                disabled={status !== "awaiting_message"}
+                className="w-full p-2 py-4 border-2 border-black rounded-lg"
+                style={{ width: "100%" }}
+                value={input}
+                placeholder="Alguma dúvida?"
+                onChange={handleInputChange}
+              />
+            </form>
+          )}
         </div>
       </div>
     </div>
-    
   );
 }

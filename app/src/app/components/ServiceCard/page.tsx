@@ -10,7 +10,7 @@ export interface props {
 }
 export default function ServiceCard({ title, link }: props) {
   return (
-    <Link href={`/${link}`} className="flex flex-col">
+    <Link href={`/tutorial/${link}`} className="flex flex-col">
       <Image src={logo} alt={title} />
       <span>{title}</span>
     </Link>
