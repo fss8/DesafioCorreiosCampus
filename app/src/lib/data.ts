@@ -13,6 +13,7 @@ export interface CorreiosService {
   icon: StaticImageData;
   slug: string;
   title: string;
+  systems: System[];
   steps: Step[];
 }
 
@@ -21,11 +22,34 @@ type Step = {
   desc: string;
 };
 
+type System = {
+  name: string;
+  icon: StaticImageData;
+  link: string;
+};
+
 export const CorreiosServices: CorreiosService[] = [
   { 
     icon: time,
     slug: "prices",
     title: "Preços e prazos",
+    systems: [
+      { 
+        name: 'ServiçoA',
+        icon: postal,
+        link: 'link1',
+      },
+      { 
+        name: 'ServiçoB',
+        icon: international,
+        link: 'link2',
+      },
+      { 
+        name: 'ServiçoC',
+        icon: postal,
+        link: 'link3',
+      },
+    ],
     steps:  [
       {
         title: "Acessar a Plataforma de Preços e Prazos",
@@ -49,6 +73,23 @@ export const CorreiosServices: CorreiosService[] = [
     icon: international,
     slug: "prices-inter",
     title: "Preços e prazos internacionais",
+    systems: [
+      { 
+        name: 'ServiçoA',
+        icon: cpf,
+        link: 'link1',
+      },
+      { 
+        name: 'ServiçoB',
+        icon: postal,
+        link: 'link2',
+      },
+      { 
+        name: 'ServiçoC',
+        icon: postal,
+        link: 'link3',
+      },
+    ],
     steps: [
       {
         title: "Script de Calculo",
@@ -60,6 +101,23 @@ export const CorreiosServices: CorreiosService[] = [
     icon: postal,
     slug: "dispatch",
     title: "Despacho Postal",
+    systems: [
+      { 
+        name: 'ServiçoA',
+        icon: locker,
+        link: 'link1',
+      },
+      { 
+        name: 'ServiçoB',
+        icon: locker,
+        link: 'link2',
+      },
+      { 
+        name: 'ServiçoC',
+        icon: locker,
+        link: 'link3',
+      },
+    ],
     steps: [
       {
         title: "Informações Gerais",
@@ -79,6 +137,7 @@ export const CorreiosServices: CorreiosService[] = [
     icon: cpf,
     slug: "cpf",
     title: "Ajustes no CPF",
+    systems: [],
     steps: [
       {
         title: "Fazer coiso coisado",
@@ -90,6 +149,7 @@ export const CorreiosServices: CorreiosService[] = [
     icon: found,
     slug: "lost&found",
     title: "Achados e Perdidos",
+    systems: [],
     steps: [
       {
         title: "Fazer coiso coisado",
@@ -101,6 +161,7 @@ export const CorreiosServices: CorreiosService[] = [
     icon: locker,
     slug: "locker",
     title: "Locker",
+    systems: [],
     steps: [
       {
         title: "Fazer coiso coisado",
@@ -112,6 +173,7 @@ export const CorreiosServices: CorreiosService[] = [
     icon: correio,
     slug: "sedex",
     title: "Sedex",
+    systems: [],
     steps: [
       {
         title: "Fazer coiso coisado",
@@ -123,6 +185,7 @@ export const CorreiosServices: CorreiosService[] = [
     icon: cep,
     slug: "cep-search",
     title: "Busca CEP",
+    systems: [],
     steps: [
       {
         title: "Fazer coiso coisado",

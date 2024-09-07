@@ -112,7 +112,7 @@ export default function Chat() {
               <input
                 ref={inputRef}
                 disabled={status !== "awaiting_message"}
-                className="w-full ml-4 border-none focus:outline-none focus:ring-0"
+                className="w-full ml-4 border-none focus:outline-none focus:ring-0 text-black"
                 value={input}
                 placeholder="Faça uma pergunta para o Correios Assistente"
                 onChange={handleInputChange}
