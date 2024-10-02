@@ -47,8 +47,8 @@ export default function Chat() {
   const submitMessage2 =  (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // submitMessage(input);
-    console.log(input);
-    console.log(messages)
+    // console.log(input);
+    // console.log(messages)
     const lastElement = messages[messages.length - 1];
     const id = lastElement.id;
     setMessages([...messages, { id: (id+1).toString(), role: "user", content: input }, {
