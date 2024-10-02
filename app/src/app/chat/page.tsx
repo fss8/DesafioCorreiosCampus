@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react";
 import search from "@/public/assets/search-icon.svg";
 
 export default function Chat() {
-  const { status, messages, setMessages, input, submitMessage, handleInputChange, error } =
+  const { status, messages, setMessages, input, setInput, submitMessage, handleInputChange, error } =
     useAssistant({
       api: "/api/assistant",
     });
@@ -30,19 +30,35 @@ export default function Chat() {
     }
   }, [status]);
 
-  // useEffect(() => {
-  //   setMessages([
-  //     {
-  //       id: "1",
-  //       role: "user",
-  //       content: "Como posso fazer o despacho de uma encomenda",
-  //     },
-  //     {
-  //       "role": "assistant",
-  //       "content": "Mock da resposta assistente virtual",
-  //       "id": "2"
-  //   }])
-  // }, []);
+  useEffect(() => {
+    setMessages([
+      {
+        id: "1",
+        role: "user",
+        content: "Como posso fazer o despacho de uma encomenda",
+      },
+      {
+        "role": "assistant",
+        "content": "Resposta da resposta assistente virtual",
+        "id": "2"
+    }])
+  }, []);
+
+  const submitMessage2 =  (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // submitMessage(input);
+    console.log(input);
+    console.log(messages)
+    const lastElement = messages[messages.length - 1];
+    const id = lastElement.id;
+    setMessages([...messages, { id: (id+1).toString(), role: "user", content: input }, {
+      "role": "assistant",
+      "content": "Segunda Resposta da resposta assistente virtual",
+      id: (id+2).toString()
+  } ]);
+    setInput('');
+    // console.log(e);
+  }
 
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const messagesContainerRef = useRef<HTMLDivElement | null>(null);
@@ -103,7 +119,7 @@ export default function Chat() {
       {status === "in_progress" ? (
           <div className="h-8 w-full-4 p-2 mb-8 ml-2 mr-2 bg-gray-300 dark:bg-gray-600 rounded-lg animate-pulse" />
         ) : (
-          <form onSubmit={submitMessage}>
+          <form onSubmit={submitMessage2}>
             <div
               className={`flex w-full p-2 py-4 ${
                 messages.length > 0 ? "border-t" : ""
@@ -120,7 +136,7 @@ export default function Chat() {
               <div>
                 <Image
                   src={search}
-                  onClick={submitMessage}
+                  onClick={submitMessage2}
                   alt="Ícone de busca"
                   className="w-6 h-6"
                   width={800}
